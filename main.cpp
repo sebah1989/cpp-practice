@@ -34,6 +34,37 @@ void struct_fun_3()
 	dipslay_struct_fileds(pud);
 }
 
+void lottery_4()
+{
+	using std::cout;
+	using std::cin;
+	unsigned int numbers1;
+	unsigned int picks1;
+	unsigned int numbers2;
+	unsigned int picks2;
+	cout << "Give the highest lottery 1 number: ";
+	cin >> numbers1;
+	cout << "Give number of lottery 1 picks: ";
+	cin >> picks1;
+	cout << "Give the highest lottery 2 number: ";
+	cin >> numbers2;
+	cout << "Give number of lottery 2 picks: ";
+	cin >> picks2;
+	cout << "Calculated combo probability = " << (1 / (
+		calculate_probability(numbers1, picks1) * calculate_probability(numbers2, picks2)));
+}
+
+void factorial_5()
+{
+	using std::cout;
+	using std::cin;
+	using std::endl;
+	int number;
+	cout << "Type number to calculate: ";
+	cin >> number;
+	cout << "Calculated factorial = " << factorial(5) << endl;
+}
+
 int main(void) {
-	struct_fun_3();
+	factorial_5();
 }

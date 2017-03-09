@@ -16,4 +16,6 @@ double calculate_average(double tab[], int number);
 void display_result(double tab[], int number, double average);
 void dipslay_struct_fileds(pudlo arg);
 void calculate_capacity(pudlo * arg);
+double calculate_probability(unsigned int numbers, unsigned int picks);
+int factorial(int number);
 #endif

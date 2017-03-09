@@ -61,3 +61,23 @@ void calculate_capacity(pudlo * arg)
 {
 	arg->objetosc = arg->wysokosc * arg-> wysokosc * arg->dlugosc;
 }
+
+double calculate_probability(unsigned numbers, unsigned picks)
+{
+	double result = 1.0;
+	unsigned n;
+	unsigned p;
+	for (n = numbers, p = picks; p > 0; n--, p--) {
+		result = result * n / p;
+	}
+	return result;
+}
+
+int factorial(int number)
+{
+	if (number == 0) {
+		return 1;
+	} else if (number > 0) {
+		return number * factorial(number - 1);
+	}
+}
