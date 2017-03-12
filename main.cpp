@@ -29,7 +29,7 @@ void collect_and_display_golf_result_2()
 
 void struct_fun_3()
 {
-	pudlo pud {"Honda", 10, 10, 15};
+	pudlo pud = {"Honda", 10, 10, 15};
 	calculate_capacity(&pud);
 	dipslay_struct_fileds(pud);
 }
@@ -65,6 +65,68 @@ void factorial_5()
 	cout << "Calculated factorial = " << factorial(5) << endl;
 }
 
+void fill_6()
+{
+	using std::cout;
+	const int SIZE = 5;
+	double tab[SIZE];
+	fill_array(tab, SIZE);
+	show_array(tab, SIZE);
+	reverse_array(tab, SIZE);
+	cout << "After reverse: \n";
+	std::cout << std::endl;
+	show_array(tab, SIZE);
+}
+
+void fill_7()
+{
+	using std::cout;
+	const int SIZE = 5;
+	double tab[SIZE];
+	double * last_filled;
+	last_filled = fill_array(&tab[0], &tab[SIZE]);
+	show_array(&tab[0], last_filled);
+	reverse_array(&tab[0], last_filled);
+	cout << "After reverse: \n";
+	show_array(&tab[0], last_filled);
+}
+
+void fill_8()
+{
+	const int SEASONS = 4;
+	const char * snames[SEASONS] = {"Wiosna", "Lato", "Jesień", "Zima"};
+	double expenses[SEASONS];
+	Expenses exp;
+	fill_array(snames, expenses, SEASONS);
+	show_array(snames, expenses, SEASONS);
+	fill_array(snames, exp, SEASONS);
+	show_array(snames, exp, SEASONS);
+}
+
+void exec_9()
+{
+	using std::cout;
+	using std::cin;
+	int group_size;
+	cout << "Type group size: ";
+	cin >> group_size;
+	while (cin.get() != '\n') {
+		continue;
+	}
+	student * ptr_stu = new student[group_size];
+	int entered = getinfo(ptr_stu, group_size);
+	cout << entered << "\n";
+	for (int i = 0; i < entered; i ++) {
+		display1(ptr_stu[i]);
+		display2(&ptr_stu[i]);
+	}
+	display3(ptr_stu, entered);
+	delete [] ptr_stu;
+	cout << "Done!\n";
+}
+
 int main(void) {
-	factorial_5();
+	using namespace std;
+
+	exec_9();
 }

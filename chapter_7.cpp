@@ -81,3 +81,163 @@ int factorial(int number)
 		return number * factorial(number - 1);
 	}
 }
+
+int fill_array(double tab[], int number)
+{
+	using std::cout;
+	using std::cin;
+	int i;
+	for (i = 0; i < number; i++) {
+		cout << "Type number: ";
+		if (!(cin >> tab[i])) {
+			break;
+		}
+	}
+	return i;
+}
+
+void show_array(double tab[], int number)
+{
+	using std::cout;
+	using std::endl;
+	for (int i = 0; i < number; i++) {
+		cout << "Element " << i + 1 << " has value " << tab[i] << endl; 
+	}
+}
+
+void reverse_array(double tab[], int number)
+{
+	double tmp;
+	for(int i = 0; i < (number / 2); i++) {
+		tmp = tab[i];
+		tab[i] = tab[number - i - 1];
+		tab[number - i - 1] = tmp;
+	}
+}
+
+double * fill_array(double * begin, double * end)
+{
+	using std::cout;
+	using std::cin;
+	double * current;
+	for (current = begin; current < end; current++) {
+		cout << "Type number: ";
+		if (!(cin >> *current)) {
+			break;
+		}
+	}
+	return current;
+}
+
+void show_array(double * begin, double * end)
+{
+	using std::cout;
+	using std::endl;
+	int counter = 1;
+	for (double * current = begin; current < end; current++, counter++) {
+		cout << "Element " << counter << " has value " << *current << endl; 
+	}
+}
+
+void reverse_array(double * begin, double * end)
+{
+	double tmp;
+	int counter = 0;
+	for(double * current = begin; counter < ((end - begin) / 2); current++, counter++) {
+		tmp = *current;
+		*current = *(end - 1 - counter);
+		*(end - 1 - counter) = tmp;
+	}
+}
+
+void fill_array(const char * seasons[], double expenses[], int size)
+{
+	using std::cout;
+	using std::endl;
+	using std::cin;
+	for (int i = 0; i < size; i++) {
+		cout << "Type expenses for period: " << seasons[i] << endl;
+		cin >> expenses[i];
+	}
+}
+
+void show_array(const char * seasons[], double expenses[], int size)
+{
+	using std::cout;
+	using std::cin;
+	using std::endl;
+	double total = 0.0;
+	cout << "Expenses: " << endl;
+	for (int i = 0; i < size; i++) {
+		cout << seasons[i] << ": " << expenses[i] << "zł" << endl;
+		total += expenses[i];
+	}
+	cout << "Total year expenses: " << total << "zł" << endl;
+}
+
+void fill_array(const char * seasons[], Expenses & exp, int size)
+{
+	using std::cout;
+	using std::endl;
+	using std::cin;
+	for (int i = 0; i < size; i++) {
+		cout << "Type expenses for period: " << seasons[i] << endl;
+		cin >> exp.expenses[i];
+	}
+}
+void show_array(const char * seasons[], Expenses exp, int size)
+{
+	using std::cout;
+	using std::cin;
+	using std::endl;
+	double total = 0.0;
+	cout << "Expenses: " << endl;
+	for (int i = 0; i < size; i++) {
+		cout << seasons[i] << ": " << exp.expenses[i] << "zł" << endl;
+		total += exp.expenses[i];
+	}
+	cout << "Total year expenses: " << total << "zł" << endl;
+}
+
+int getinfo(student pa[], int n)
+{
+	using std::cout;
+	using std::cin;
+	char name[256];
+	int i;
+	for (i = 0; i < n; i++) {
+		cout << "Type fullname: ";
+		cin.getline(pa[i].fullname, SLEN);
+		if (strcmp(pa[i].fullname, "") == 0) {
+			break;
+		}
+		cout << "Type hobby: ";
+		cin.getline(pa[i].hobby, SLEN);
+		cout << "Type ooplevel: ";
+		cin >> pa[i].ooplevel;
+		while (cin.get() != '\n') {
+			continue;
+		}
+	}
+	return i;
+}
+
+void display1(student st)
+{
+	using std::cout;
+	using std::endl;
+	cout << "Student:" << endl;
+	cout << "\tfullname " << st.fullname << endl;
+	cout << "\thobby " << st.hobby << endl;
+	cout << "\tooplevel " << st.ooplevel << endl;
+}
+
+void display2(const student * ps)
+{
+
+}
+
+void display3(const student pa[], int n)
+{
+
+}
