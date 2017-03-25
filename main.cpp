@@ -125,8 +125,23 @@ void exec_9()
 	cout << "Done!\n";
 }
 
+void exec_10()
+{
+	using std::cout;
+	using std::endl;
+	using std::cin;
+	double first;
+	double second;
+	double (*ptr[2])(double, double) = {add, multiply};
+	while (cin >> first && cin >> second) {
+		for (int i=0; i < 2; i++) {
+			cout << "Result of calling function " << i + 1 << ": " << calculate(first, second, ptr[i]) << endl;
+		}
+	}
+}
+
 int main(void) {
 	using namespace std;
 
-	exec_9();
+	exec_10();
 }

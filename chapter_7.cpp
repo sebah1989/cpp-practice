@@ -226,7 +226,7 @@ void display1(student st)
 {
 	using std::cout;
 	using std::endl;
-	cout << "Student:" << endl;
+	cout << "Student (passed by copy):" << endl;
 	cout << "\tfullname " << st.fullname << endl;
 	cout << "\thobby " << st.hobby << endl;
 	cout << "\tooplevel " << st.ooplevel << endl;
@@ -234,10 +234,34 @@ void display1(student st)
 
 void display2(const student * ps)
 {
-
+	using std::cout;
+	using std::endl;
+	cout << "Student (passed by pointer):" << endl;
+	cout << "\tfullname " << ps->fullname << endl;
+	cout << "\thobby " << ps->hobby << endl;
+	cout << "\tooplevel " << ps->ooplevel << endl;
 }
 
 void display3(const student pa[], int n)
 {
+	using std::cout;
+	cout << "Passed students in array:\n";
+	for (int i = 0; i < n; i++) {
+		display2(&pa[i]);
+	}
+}
 
+double add(double arg1, double arg2)
+{
+	return arg1 + arg2;
+}
+
+double multiply(double arg1, double arg2)
+{
+	return arg1 * arg2;
+}
+
+double calculate(double arg1, double arg2, double (*ptr)(double, double))
+{
+	return ptr(arg1, arg2);
 }

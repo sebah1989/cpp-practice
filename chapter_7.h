@@ -44,5 +44,8 @@ int getinfo(student pa[], int n);
 void display1(student st);
 void display2(const student * ps);
 void display3(const student pa[], int n);
+double add(double arg1, double arg2);
+double multiply(double arg1, double arg2);
+double calculate(double arg1, double arg2, double (*ptr)(double arg1, double arg2));
 
 #endif
